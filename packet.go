@@ -221,7 +221,7 @@ func (p *Packet) UnmarshalBinary(b []byte) error {
 	copy(bb[ml:ml+il], b[n:n+il])
 	senderIP, ok := netip.AddrFromSlice(bb[ml : ml+il])
 	if !ok {
-		return errors.New("Invalid Sender IP address")
+		return errors.New("invalid sender IP address")
 	}
 	p.SenderIP = senderIP
 	n += il
@@ -235,7 +235,7 @@ func (p *Packet) UnmarshalBinary(b []byte) error {
 	copy(bb[ml2+il:ml2+il2], b[n:n+il])
 	targetIP, ok := netip.AddrFromSlice(bb[ml2+il : ml2+il2])
 	if !ok {
-		return errors.New("Invalid Target IP address")
+		return errors.New("invalid target IP address")
 	}
 	p.TargetIP = targetIP
 
